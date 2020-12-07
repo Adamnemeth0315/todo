@@ -1,0 +1,120 @@
+@font-face{
+    font-family: "Roboto";
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap');
+    font-weight: 500;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#eb2a08 0%, #ED35FF 100%);
+}
+
+html {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    color: #FFF; 
+}
+
+.date{
+    color: #FF3345;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+.list__box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 70vW;
+    background-color: #FFF;
+    padding: 2rem;
+}
+
+.input__form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 50vw;
+}
+
+.input{
+    width: 40vw;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    padding: 10px;
+    line-height: 1.4rem;
+    outline: none;
+    font-weight: 600;
+}
+
+.addBtn {
+    width: 5vw;
+    font-size: 1.5rem;
+    color: #FFF;
+    line-height: 2.4rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    background-color: #a3a3a3;
+}
+
+.addBtn:hover {
+    transform: scale(.95);
+}
+
+.addBtn:active {
+    background-color: #3665FF ;
+}
+
+.text__div {
+    font-weight: 300;
+    align-self: flex-start;
+    margin-top: 1.8rem;
+    margin-bottom: 1.3rem;
+    font-size: 1.3rem;
+    color: #a3a3a3;
+}
+
+.todo__ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    cursor: pointer;
+    width: 47vw;
+    line-height: 1.4rem;
+    padding: 0.6rem;
+    background-color: #d3d3d3;
+    text-align: center;
+}
+
+.todo__checkbox {
+    float: left;
+}
+
+.deleteBtn {
+    float: right;
+    width: 4rem;
+    line-height: 1.6rem;
+    color: #383838;
+}

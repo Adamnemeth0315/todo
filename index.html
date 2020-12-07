@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="node_modules\font-awesome\css\font-awesome.min.css">
+</head>
+
+<body>
+    <main class="main__container">
+        <header class="header">
+            <h1>Daily ToDo-List Manager</h1>
+        </header>
+        <div class="list__box">
+            <div class="date">2020.12.07</div>
+            <form class="input__form">
+                <input type="text" class="input" placeholder="Take the garbage out">
+                <button class="addBtn"><i class="fa fa-plus"></i></button>
+            </form>
+            <div class="text__div">You have <span class="todos__number"></span> pending items.</div>
+                <ul class="todo__ul">
+                    <li>
+                        <input class="todo__checkbox" type="checkbox">
+                        Valami teszt.
+                        <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>
+                    </li>
+                </ul>
+        
+        </div>
+    </main>
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
