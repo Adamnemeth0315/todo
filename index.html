@@ -15,20 +15,31 @@
             <h1>Daily ToDo-List Manager</h1>
         </header>
         <div class="list__box">
-            <div class="date">2020.12.07</div>
+            <div class="date"></div>
             <form class="input__form">
                 <input type="text" class="input" placeholder="Take the garbage out">
-                <button class="addBtn"><i class="fa fa-plus"></i></button>
+                <button type="button" class="addBtn"><i class="fa fa-plus"></i></button>
             </form>
-            <div class="text__div">You have <span class="todos__number"></span> pending items.</div>
-                <ul class="todo__ul">
-                    <li>
-                        <input class="todo__checkbox" type="checkbox">
-                        Valami teszt.
-                        <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>
-                    </li>
-                </ul>
-        
+            <div class="text__div">You have <span class="todos__number">0</span> pending items.</div>
+            <div class="chill__box">
+                <i class="fa fa-bed  icon"></i>
+                <span class="chill__text">Time to chill. You have no todos.</span>
+            </div>
+
+           
+           
+           
+            <ul class="todo__ul">
+                <li>
+                    <input class="todo__checkbox" type="checkbox">
+                    Valami teszt.
+                    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>
+                </li>
+            </ul>
+            <div class="todo__settings">
+                <button class="showCompleteBtn" > Show Complete</button>
+                    <button class="clearBtn">Clear All</button>
+                </div>
         </div>
     </main>
 

@@ -34,6 +34,9 @@ html {
     color: #FF3345;
     font-weight: 600;
     align-self: flex-start;
+    margin-top: 1.2rem;
+    margin-left: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 
 .list__box {
@@ -41,8 +44,10 @@ html {
     display: flex;
     flex-direction: column;
     width: 70vW;
+    height: 85vh;
     background-color: #FFF;
     padding: 2rem;
+    padding-bottom: 0.7rem;
 }
 
 .input__form{
@@ -50,11 +55,11 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    width: 50vw;
+    min-width: 100%;
 }
 
 .input{
-    width: 40vw;
+    width: 87%;
     border: 1px solid #a3a3a3;
     border-radius: 3px;
     padding: 10px;
@@ -64,7 +69,7 @@ html {
 }
 
 .addBtn {
-    width: 5vw;
+    width: 7%;
     font-size: 1.5rem;
     color: #FFF;
     line-height: 2.4rem;
@@ -89,19 +94,31 @@ html {
     align-self: flex-start;
     margin-top: 1.8rem;
     margin-bottom: 1.3rem;
+    margin-left: 1.2rem;
     font-size: 1.3rem;
     color: #a3a3a3;
 }
 
 .todo__ul {
+    display: none;  /*flex-re kell majd állítani*/
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 ul li {
     cursor: pointer;
-    width: 47vw;
+    width: 63vw;
     line-height: 1.4rem;
     padding: 0.6rem;
     background-color: #d3d3d3;
@@ -109,12 +126,58 @@ ul li {
 }
 
 .todo__checkbox {
-    float: left;
+    align-self: flex-start;
 }
 
 .deleteBtn {
-    float: right;
+    align-self: flex-end;
     width: 4rem;
     line-height: 1.6rem;
     color: #383838;
+}
+
+.todo__settings {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.showCompleteBtn {
+    width: 200px;
+    line-height: 1.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #FFF;
+    margin: 3px;
+}
+
+.clearBtn {
+    width: 200px;
+    line-height: 1.5rem;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    margin: 3px;
+    background-color: #FFF;
+}
+
+.clearBtn:hover, .showCompleteBtn:hover {
+    box-shadow: 1px 1px rgba(0, 0,0, 0.4);
+}
+
+.chill__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.chill__text {
+    font-size: 20px;
 }
