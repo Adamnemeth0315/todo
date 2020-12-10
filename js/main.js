@@ -22,6 +22,19 @@ todoForm.addEventListener('submit', function (event) {
     addTodo(todoInput.value);
 });
 
+const addTodo = (value) => {
+    if (value !== "") {
+        const todo = {
+            name : value,
+            complete : false,
+        }
+        todoList.push(todo);
+        localDatabase.setItem(todoList);
+        todoInput.value = '' ;
+    }
+}
+
+
 //LocalStorage kezelő objektum
 const localDatabase = {
     setItem(key,value) {
@@ -59,7 +72,7 @@ const pushTodosToTheArray = () => {
     }
 }
 
-const addTodoToTheList = makeAnLiItem => {
+const addTodoToTheList = () => {
     const liItems = document.createElement('li');
     liItems.innerHTML =  `<input class="todo__checkbox" type="checkbox">
     <span>${todoInput.value}</span>
@@ -69,10 +82,9 @@ const addTodoToTheList = makeAnLiItem => {
     todoItems.appendChild(liItems);
 }
 
-addButton.addEventListener('click', addTodoToTheList);
 addButton.addEventListener('click', pushTodosToTheArray);
-addButton.addEventListener('click', function () {
-    todoInput.value = '';
-});
+addButton.addEventListener('click', addTodoToTheList);
+addButton.addEventListener('click', addTodo);
+
 
 

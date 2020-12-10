@@ -150,6 +150,7 @@ ul li:checked {
     width: 4rem;
     line-height: 1.6rem;
     color: #FFF;
+    border: none;
     background-color: #FF3040;
 }
 
