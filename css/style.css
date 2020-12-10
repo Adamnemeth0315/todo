@@ -108,13 +108,17 @@ html {
 }
 
 .todo__ul {
-    display: none;  /*flex-re kell majd állítani*/
+    display: none;  
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+.todo__ul.todo__item{
+    display: flex;
 }
 
 li {
@@ -194,6 +198,10 @@ ul li:checked {
     justify-content: center;
     align-items: center;
     font-size: 2.5rem;
+}
+
+.chill__box.hidden{
+    display: none;
 }
 
 .chill__text {

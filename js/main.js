@@ -19,17 +19,19 @@ let completeTodoList= [];
 
 todoForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    addTodo(todoInput.value);
+    addTodo();
 });
 
 const addTodo = (value) => {
-    if (value !== "") {
+    if (todoInput.value) {
         const todo = {
-            name : value,
+            name : todoInput.value,
             complete : false,
         }
         todoList.push(todo);
-        localDatabase.setItem(todoList);
+        localDatabase.setItem('todosList', todoList);
+        
+        addTodoToTheList();
         todoInput.value = '' ;
     }
 }
@@ -37,54 +39,28 @@ const addTodo = (value) => {
 
 //LocalStorage kezelő objektum
 const localDatabase = {
-    setItem(key,value) {
+    setItem(key, value) {
         value = JSON.stringify(value);
-    localStorage.setItem(key, value);    
+        localStorage.setItem(key, value);    
     },
-getItem(key) {
-    const value = localStorage.getItem(key);
-    if (!value){
-        return null;
-    }
-    return JSON.parse(value);
+    getItem(key) {
+        const value = localStorage.getItem(key);
+        if (!value){
+            return null;
+        }
+        return JSON.parse(value);
     },
-removeItem(key){
-    localStorage.removeItem(key);
+    removeItem(key){
+        localStorage.removeItem(key);
     }
 };
 
-localDatabase.setItem('todoList', todoList);
-
-
-/*<ul class="todo__ul">
-                <li>
-                    <input class="todo__checkbox" type="checkbox">
-                    <span> ${item.name}</span>
-                    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>
-                </li>
-            </ul>*/
-
-
-let value = todoInput.value;
-const pushTodosToTheArray = () => {
-    if (value) {
-        todoList.push(value);
-    }
-}
-
 const addTodoToTheList = () => {
     const liItems = document.createElement('li');
+    todoItems.classList.add('todo__item');
     liItems.innerHTML =  `<input class="todo__checkbox" type="checkbox">
     <span>${todoInput.value}</span>
-    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>`;
-    todoItems.style.display = 'flex';
-    chill.style.display = 'none';
+    <button class="deleteBtn"><i class="fa fa-trash"></i></button>`;
+    chill.classList.add('hidden');
     todoItems.appendChild(liItems);
 }
-
-addButton.addEventListener('click', pushTodosToTheArray);
-addButton.addEventListener('click', addTodoToTheList);
-addButton.addEventListener('click', addTodo);
-
-
-
