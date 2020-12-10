@@ -5,13 +5,16 @@ const todoInput = document.querySelector('.input');
 const addButton = document.querySelector('.addBtn');
 const todoItems = document.querySelector('.todo__ul');
 const chill = document.querySelector('.chill__box');
+const date = document.querySelector('.date');
+const day = document.querySelector('.day');
+const daysName = ['Sunday', 'Monday', 'Thuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let todoList = [];
 let completeTodoList= [];
 
 (function getDate() {
-    const date = document.querySelector('.date');
     const dateNow = new Date();
-    date.textContent = dateNow.toLocaleDateString('hu');
+    day.textContent = daysName[dateNow.getDay()];
+    date.textContent = dateNow.toLocaleDateString('us');
 })();
 
 todoForm.addEventListener('submit', function (event) {
@@ -19,59 +22,11 @@ todoForm.addEventListener('submit', function (event) {
     addTodo(todoInput.value);
 });
 
-const addTodo = (item) => {
-    if (item !== "") {
-        const todo = {
-            name : item,
-            complete : false,
-        }
-        todoList.push(todo);
-        addToLocaleStorages(todos);
-        todoInput.value = '' ;
-    }
-}
-
-const addToLocaleStorages = () => {
-    
-}
-
-
-/*<ul class="todo__ul">
-                <li>
-                    <input class="todo__checkbox" type="checkbox">
-                    <span> ${item.name}</span>
-                    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>
-                </li>
-            </ul>*/
-
-
-
-const makeAnLiItem = () => {
-    const liItems = document.createElement('li');
-   
-}
-
-const addTodoToTheList = makeAnLiItem => {
-    const liItems = document.createElement('li');
-    liItems.innerHTML =  `<input class="todo__checkbox" type="checkbox">
-    <span>${todoInput.value}</span>
-    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>`;
-    todoItems.style.display = 'flex';
-    chill.style.display = 'none';
-    todoItems.appendChild(liItems);
-}
-
-addButton.addEventListener('click', addTodoToTheList);
-addButton.addEventListener('click', function () {
-    todoInput.value = '';
-});
-
-
-/*
-const localDb = {
+//LocalStorage kezelő objektum
+const localDatabase = {
     setItem(key,value) {
         value = JSON.stringify(value);
-    localstorage.setItem(key, value);    
+    localStorage.setItem(key, value);    
     },
 getItem(key) {
     const value = localStorage.getItem(key);
@@ -85,7 +40,39 @@ removeItem(key){
     }
 };
 
-const todos = [{name : 'value'},{name : 'value'}];
+localDatabase.setItem('todoList', todoList);
 
-localDb.setItem('todos', todos);
-*/
+
+/*<ul class="todo__ul">
+                <li>
+                    <input class="todo__checkbox" type="checkbox">
+                    <span> ${item.name}</span>
+                    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>
+                </li>
+            </ul>*/
+
+
+let value = todoInput.value;
+const pushTodosToTheArray = () => {
+    if (value) {
+        todoList.push(value);
+    }
+}
+
+const addTodoToTheList = makeAnLiItem => {
+    const liItems = document.createElement('li');
+    liItems.innerHTML =  `<input class="todo__checkbox" type="checkbox">
+    <span>${todoInput.value}</span>
+    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>`;
+    todoItems.style.display = 'flex';
+    chill.style.display = 'none';
+    todoItems.appendChild(liItems);
+}
+
+addButton.addEventListener('click', addTodoToTheList);
+addButton.addEventListener('click', pushTodosToTheArray);
+addButton.addEventListener('click', function () {
+    todoInput.value = '';
+});
+
+
