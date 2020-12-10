@@ -141,7 +141,8 @@ ul li:checked {
     align-self: flex-end;
     width: 4rem;
     line-height: 1.6rem;
-    color: #383838;
+    color: #FFF;
+    background-color: #FF3040;
 }
 
 .todo__settings {

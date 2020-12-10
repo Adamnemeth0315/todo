@@ -39,34 +39,23 @@ const addToLocaleStorages = () => {
 /*<ul class="todo__ul">
                 <li>
                     <input class="todo__checkbox" type="checkbox">
-                    Valami teszt.
-                    <button class="deleteBtn">delete</button>
+                    <span> ${item.name}</span>
+                    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>
                 </li>
             </ul>*/
 
 
-//Törlés gomb hozzáadása az li-hez. 
-/*const liItems = document.querySelectorAll('.li');
-const giveDeleteButtonToLiItem = () => {
-    for (let i = 0; i < liItems.length; i++) {
-        let deleteButton = document.createElement('button');
-        deleteButton.innerHTML = '<i class="fa fa-trash-alt"></i>';
-        deleteButton.className = 'deleteBtn';
-        liItems[i].appendChild(deleteButton);
-    }
-}*/
 
 const makeAnLiItem = () => {
     const liItems = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.className = 'checkbox';
-    liItems.appendChild(checkbox);
+   
 }
 
 const addTodoToTheList = makeAnLiItem => {
     const liItems = document.createElement('li');
-    liItems.textContent = todoInput.value;
+    liItems.innerHTML =  `<input class="todo__checkbox" type="checkbox">
+    <span>${todoInput.value}</span>
+    <button class="deleteBtn"><i class="fa fa-trash-alt"></i></button>`;
     todoItems.style.display = 'flex';
     chill.style.display = 'none';
     todoItems.appendChild(liItems);
@@ -76,3 +65,27 @@ addButton.addEventListener('click', addTodoToTheList);
 addButton.addEventListener('click', function () {
     todoInput.value = '';
 });
+
+
+/*
+const localDb = {
+    setItem(key,value) {
+        value = JSON.stringify(value);
+    localstorage.setItem(key, value);    
+    },
+getItem(key) {
+    const value = localStorage.getItem(key);
+    if (!value){
+        return null;
+    }
+    return JSON.parse(value);
+    },
+removeItem(key){
+    localStorage.removeItem(key);
+    }
+};
+
+const todos = [{name : 'value'},{name : 'value'}];
+
+localDb.setItem('todos', todos);
+*/
