@@ -101,7 +101,7 @@ html {
 
 .todo__ul {
     display: none;  /*flex-re kell majd állítani*/
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
@@ -123,6 +123,14 @@ ul li {
     padding: 0.6rem;
     background-color: #d3d3d3;
     text-align: center;
+}
+
+ul li:hover {
+    background-color: #a6a6a6;
+}
+
+ul li:checked {
+    text-decoration: line-through;
 }
 
 .todo__checkbox {
@@ -180,4 +188,8 @@ ul li {
 
 .chill__text {
     font-size: 20px;
+}
+
+.chill__box.hidden {
+    display: none;
 }
