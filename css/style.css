@@ -11,7 +11,7 @@
 body {
     padding: 0;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(#eb2a08 0%, #ED35FF 100%);
 }
 
@@ -52,13 +52,13 @@ html {
     display: flex;
     flex-direction: column;
     width: 70vW;
-    height: 85vh;
+    min-height: 85vh;
     background-color: #FFF;
     padding: 2rem;
     padding-bottom: 0.7rem;
 }
 
-.input__form{
+.form__input{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,7 +141,18 @@ ul li:hover {
     background-color: #a6a6a6;
 }
 
-ul li:checked {
+.complete__todos {
+    display: none;
+}
+
+.complete__todos.checked {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     text-decoration: line-through;
 }
 

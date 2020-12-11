@@ -1,9 +1,10 @@
 'use strict';
 
-const todoForm = document.querySelector('.input__form');
+const todoForm = document.querySelector('.form__input');
 const todoInput = document.querySelector('.input');
 const addButton = document.querySelector('.addBtn');
 const todoItems = document.querySelector('.todo__ul');
+const completedTodoItems = document.querySelector('.complete__todos');
 const chill = document.querySelector('.chill__box');
 const date = document.querySelector('.date');
 const day = document.querySelector('.day');
@@ -17,25 +18,43 @@ let completeTodoList= [];
     date.textContent = dateNow.toLocaleDateString('us');
 })();
 
-todoForm.addEventListener('submit', function (event) {
+const setStartFunction = () => {todoForm.addEventListener('submit', function (event) {
     event.preventDefault();
     addTodo();
 });
+}
 
-const addTodo = (value) => {
+
+const addTodo = () => {
     if (todoInput.value) {
         const todo = {
             name : todoInput.value,
             complete : false,
         }
         todoList.push(todo);
-        localDatabase.setItem('todosList', todoList);
+        localDatabase.setItem('todoList', todoList);
         
-        addTodoToTheList();
+        addTodoToTheList(todo);
         todoInput.value = '' ;
     }
 }
 
+const initTheProgram = () => {
+    setStartFunction();
+    loadExistingTodos();
+    //checkboxCheck(id);
+}
+
+const loadExistingTodos = () => {
+    const savedTodos = localDatabase.getItem('todoList');
+    if (savedTodos) {
+        todoList = savedTodos;
+    }
+    
+    if (todoList && Array.isArray(todoList)) {
+        todoList.forEach( todo => addTodoToTheList(todo) );
+    }
+};
 
 //LocalStorage kezelő objektum
 const localDatabase = {
@@ -55,12 +74,26 @@ const localDatabase = {
     }
 };
 
-const addTodoToTheList = () => {
-    const liItems = document.createElement('li');
+let id = 0;
+const addTodoToTheList = (todo) => {
+   const liItems = document.createElement('li');
     todoItems.classList.add('todo__item');
-    liItems.innerHTML =  `<input class="todo__checkbox" type="checkbox">
-    <span>${todoInput.value}</span>
-    <button class="deleteBtn"><i class="fa fa-trash"></i></button>`;
+    id++;
+    liItems.innerHTML =  `<input class="todo__checkbox" data-setid=${id} type="checkbox">
+    <span class"li__text">${todo.name}</span>
+    <button class="deleteBtn" data-buttunid=${id}><i class="fa fa-trash"></i></button>`;
     chill.classList.add('hidden');
     todoItems.appendChild(liItems);
-}
+    }
+
+
+
+
+const checkboxCheck = () => {
+    
+    }
+
+//Törlés gomb beállítása
+
+
+initTheProgram();
