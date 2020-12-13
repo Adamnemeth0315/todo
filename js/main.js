@@ -123,13 +123,15 @@ const addTodoToTheList = (todo) => {
     liItems.querySelector('.todo__checkbox').addEventListener('change', ev => {
         if (ev.target.checked == true) {
             completedTodoItems.appendChild(liItems);
+            let valueString = (localStorage.getItem('todoList')); 
+            valueString = valueString.replace(':false', ':true'); //Ez így még nem jó. 
             counterUpdater(false);
         } 
     });
     counterUpdater(true);
     liItems.querySelector(`[data-id="${id}"]`).addEventListener('click', (id) => {
         todoItems.removeChild(liItems);
-        localStorage.removeItem('todoList[id]');
+        localStorage.removeItem('todoList.id');
         counterUpdater(false);
     }); //Elem törlése működik de a localstorage-ból nem törli az elemet. 
     todoItems.appendChild(liItems);
