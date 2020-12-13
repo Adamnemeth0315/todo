@@ -107,7 +107,7 @@ html {
     color: #a3a3a3;
 }
 
-.todo__ul {
+.todo__container {
     display: none;  
     flex-direction: column;
     justify-content: space-between;
@@ -117,8 +117,9 @@ html {
     margin: 0;
 }
 
-.todo__ul.todo__item{
+.todo__container.todo__item{
     display: flex;
+    padding: .3rem;
 }
 
 li {
@@ -135,6 +136,7 @@ ul li {
     padding: 0.6rem;
     background-color: #d3d3d3;
     text-align: center;
+    margin: .3rem;
 }
 
 ul li:hover {
@@ -145,22 +147,32 @@ ul li:hover {
     display: none;
 }
 
-.complete__todos.checked {
+.complete__todos {
     display: flex;
+    text-decoration: line-through;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
     padding: 0;
-    margin: 0;
-    text-decoration: line-through;
+    margin: 50px 0 0 0;
+}
+
+.hide{
+    display: none;
+}
+
+.complete__todos>li {
+    background-color: #EEE;
 }
 
 .todo__checkbox {
     align-self: flex-start;
 }
 
-.deleteBtn {
+
+.todo__item .deleteBtn {
+    display: inline-block;
     align-self: flex-end;
     width: 4rem;
     line-height: 1.6rem;
@@ -221,4 +233,9 @@ ul li:hover {
 
 .chill__box.hidden {
     display: none;
+}
+
+.controller:hover {
+    color: #FF3345;
+    background: none;
 }
